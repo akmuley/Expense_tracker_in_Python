@@ -15,7 +15,6 @@ Run:
 Test:
     pytest -q
 
-Author: You 😊
 """
 
 from __future__ import annotations
