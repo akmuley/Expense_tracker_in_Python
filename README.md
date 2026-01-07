@@ -2,7 +2,7 @@
 # Expense Tracker 
 
 A simple Python expense tracker that stores data in a CSV file and prints a monthly summary.
-This version adds input validation, safer error handling, and a small text menu loop.
+This code has input validation, safer error handling, and a small text menu loop.
 
 ## Features
 - Add expenses/income to a CSV file
