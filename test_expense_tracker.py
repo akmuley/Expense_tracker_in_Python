@@ -1,8 +1,6 @@
 
-"""Basic tests for the beginner Expense Tracker (Version 3).
+"""Basic tests for Expense Tracker """
 
-These tests are intentionally small and readable—perfect for junior portfolios.
-"""
 import expense_tracker as et
 import csv
 
