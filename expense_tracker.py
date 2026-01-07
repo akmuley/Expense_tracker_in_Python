@@ -1,9 +1,9 @@
 
 """
-Expense Tracker (Beginner – Version 3)
+Expense Tracker 
 =====================================
-A simple, beginner-friendly Python program to track expenses/income in a CSV file
-and show a monthly summary. This version adds:
+Python program to track expenses/income in a CSV file
+and show a monthly summary. Code cosisits below things -
 
 - Input validation (dates, month format, amount)
 - Safer error handling with friendly messages
@@ -25,7 +25,7 @@ from datetime import date
 from pathlib import Path
 from typing import Tuple, List, Dict
 
-# ---- Configuration (kept simple on purpose) ----
+# ---- Configuration ----
 DATA_FILE = Path("transactions.csv")
 ALLOWED_TYPES = {"expense", "income"}
 CATEGORIES = [
@@ -33,7 +33,7 @@ CATEGORIES = [
 ]
 
 
-# ---------------------- Helpers & Validation ----------------------
+# ---------------------- Validations  ----------------------
 
 def ensure_file_exists() -> None:
     """Create the CSV file with a header if it doesn't exist.
@@ -49,7 +49,7 @@ def ensure_file_exists() -> None:
 def is_valid_date(iso_date: str) -> bool:
     """Return True if *iso_date* looks like YYYY-MM-DD and represents a real date.
 
-    We use Python's built-in parser via ``date.fromisoformat`` to check validity.
+    Used Python's built-in parser via ``date.fromisoformat`` to check validity.
     """
     try:
         date.fromisoformat(iso_date)
@@ -82,7 +82,7 @@ def parse_amount(raw: str) -> float:
     return round(val, 2)
 
 
-# ---------------------- Core I/O & Logic ----------------------
+# ---------------------- Transactions and Summary Functions ----------------------
 
 def add_transaction(tx_date: str, tx_type: str, amount: float, category: str, description: str) -> None:
     """Append a transaction row to the CSV file.
@@ -97,7 +97,7 @@ def add_transaction(tx_date: str, tx_type: str, amount: float, category: str, de
     Raises:
         ValueError: If any input is invalid.
     """
-    # Validate inputs explicitly to keep beginner code safe and predictable
+    # Validate inputs 
     if not is_valid_date(tx_date):
         raise ValueError("Invalid date. Please use YYYY-MM-DD.")
     if tx_type not in ALLOWED_TYPES:
@@ -156,7 +156,7 @@ def monthly_summary(month: str) -> Tuple[float, float, float]:
 # ---------------------- Simple Text Menu ----------------------
 
 def menu_loop() -> None:
-    """Run a small interactive loop for beginners to use the app."""
+    """Run a small loop to use the app."""
     ensure_file_exists()
 
     while True:
